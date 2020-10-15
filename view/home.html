@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <!-- Style and Leaflet -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Load Leaflet from CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.3/leaflet.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.3/leaflet.js"></script>
+
+    <!-- Load geocoding plugin after Leaflet -->
+    <link rel="stylesheet" href="https://maps.locationiq.com/v2/libs/leaflet-geocoder/1.9.6/leaflet-geocoder-locationiq.min.css">
+    <script src="https://maps.locationiq.com/v2/libs/leaflet-geocoder/1.9.6/leaflet-geocoder-locationiq.min.js"></script>
+
+    <!-- Style and Leaflet -->
+    <title>Map Challenge</title>
+</head>
+<body>
+    <div><input id='nome' type='text' placeholder='Nome Cliente'></div>
+    <div><input id='peso' type='number' placeholder='Peso da Entrega'></div>
+    <div><input id='searchInput' type='text' placeholder='Endereço'></div>
+    <div><input id='latitude' placeholder="latitude" disabled></div>
+    <div><input id='longitude' placeholder="longitude" disabled></div>
+    <!-- buttons -->
+    <button id='buscar'  type='button'> Buscar </button>
+    <button id='cadastrar' type='button'> Cadastrar Cliente </button>
+    <button id='showBtns' type='button'> Resetar Cadastro </button>
+     <!-- map -->
+    <div id="map"></div>
+    <!-- Data table -->
+    <ul class="geo-data">
+        <li>Full Address: <span id="location"></span></li>
+        <li>Postal Code: <span id="postal_code"></span></li>
+        <li>Country: <span id="country"></span></li>
+        <li>Latitude: <span id="lat"></span></li>
+        <li>Longitude: <span id="lon"></span></li>
+    </ul>
+    <script src='/js/orders.js'></script>
+    <script src='/js/index.js'></script>
+</body>
+</html>

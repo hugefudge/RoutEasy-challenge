@@ -1,0 +1,23 @@
+{
+  "name": "routeasy-challenge",
+  "version": "1.0.0",
+  "description": "https://github.com/RoutEasy/challenge-fullstack",
+  "main": "app.js",
+  "bin": {
+    "routeasy-challenge": "server.js"
+  },
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nobare",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.9",
+    "nodemon": "^2.0.5"
+  }
+}
