@@ -13,10 +13,7 @@ exports.validator = (req, res) => {
 exports.getAddress = async (req, res) => {
     const addressInput = req.body.address;
     const googleAddress = await googleApi.googleGeocode(addressInput);
-    if (googleAddress) {
-        return googleAddress;
-    } else {
-        console.log('Coulnt get Addres from API');
-    }
+
+    return googleAddress
 }
 

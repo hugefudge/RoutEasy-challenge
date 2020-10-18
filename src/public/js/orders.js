@@ -10,8 +10,8 @@ const createDelivery = async () => {
       }
   }
 
-  const res = await fetch('/address', settings);
-  console.log(res);
+  const googleAddress = await fetch('/address', settings);
+  console.log(googleAddress);
 };
 
 document.getElementById('buscar').addEventListener('click', createDelivery);

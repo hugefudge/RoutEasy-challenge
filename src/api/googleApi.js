@@ -17,6 +17,6 @@ exports.googleGeocode = async (addressInput) => {
     }
         return dadosTratados;
     } else {
-        console.log('Erro ao buscar addres na API');
+        return console.log('Erro ao buscar address na API');
     } 
 };
