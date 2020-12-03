@@ -1,5 +1,5 @@
 const createDelivery = async () => {
-  debugger;
+
   const info = getInput();
   const settings = {
       method: 'POST',
@@ -9,9 +9,18 @@ const createDelivery = async () => {
           'Content-Type': 'application/json',
       }
   }
+  
+    const reponse = await fetch('/address', settings);
+    const delivery = await reponse.json();
+    console.log(delivery); // Endereço da API do google e Input
 
-  const googleAddress = await fetch('/address', settings);
-  console.log(googleAddress);
+    infoToPage(delivery);
 };
+
+const loadMarkers = () => {
+
+}
+
+document.addEventListener('DOMContentLoaded', loadMarkers);
 
 document.getElementById('buscar').addEventListener('click', createDelivery);

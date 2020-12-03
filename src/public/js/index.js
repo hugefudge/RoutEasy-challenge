@@ -1,23 +1,55 @@
+// Passar por um validador antes de mandar para o orders.createAddress
 const getInput = () => {
-    const input = {
-        nome: document.getElementById('nome').value,
-        peso: document.getElementById('peso').value,
-        address: document.getElementById('searchInput').value
+    let input = {
+        name: document.forms['inputForm']['nome'].value,
+        weight: document.forms['inputForm']['peso'].value,
+        address: document.forms['inputForm']['address'].value,
+        inputTime: Date.now()
     }
-    return input;
+    if (!input) {
+        return false
+
+    } else {
+        return input;
+    }
 };
 
-const leafMap = () => {
-    const mymap = L.map('map').setView([-27.5935423, -48.6387116], 13);
-    let token = 'pk.eyJ1IjoiaHVnZWZ1ZGdlIiwiYSI6ImNrYjVzdHFlNTB6dmoycG54MnFlY25sMXcifQ.QcmLmiVJ_ESauUJXk4Z0NA'
+// Mapa no escopo global, pesquisar alternativa
+    var mymap = L.map('map').setView([-27.5935423, -48.6387116], 13);
+    const token = 'pk.eyJ1IjoiaHVnZWZ1ZGdlIiwiYSI6ImNrYjVzdHFlNTB6dmoycG54MnFlY25sMXcifQ.QcmLmiVJ_ESauUJXk4Z0NA'
     L.tileLayer(`https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${token}`, {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         id: 'mapbox/streets-v11',
         tileSize: 512,
         zoomOffset: -1
     }).addTo(mymap);
+
+
+const infoToPage = (delivery) => {
+    document.getElementById('cadastrar').disabled = false;
+    document.getElementById('showBtns').disabled = false;
+    document.getElementById('latitude').placeholder = delivery.latitude;
+    document.getElementById('longitude').placeholder = delivery.longitude;
+    document.getElementById('location').outerHTML = delivery.endereco;
+    document.getElementById('tableName').outerHTML = delivery.nome;
+    document.getElementById('tableWeight').outerHTML = delivery.peso;
+   
+
+    var markers = L.marker([delivery.latitude, delivery.longitude]).addTo(mymap);
+
 };
 
-document.addEventListener('readystatechange', () => {    
-    if (document.readyState == 'complete') leafMap();
-});
+const resetFields = () => {
+    document.forms['inputForm'].reset();
+    document.getElementById('cadastrar').disabled = true;
+    document.getElementById('showBtns').disabled = true;
+    document.getElementById('longitude').placeholder = 'longitude';
+    document.getElementById('latitude').placeholder = 'latitude';
+    
+}
+
+document.getElementById('showBtns').addEventListener('click', resetFields);
+
+
+
+

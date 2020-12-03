@@ -17,24 +17,28 @@
     <title>Map Challenge</title>
 </head>
 <body>
-    <div><input id='nome' type='text' placeholder='Nome Cliente'></div>
-    <div><input id='peso' type='number' placeholder='Peso da Entrega'></div>
-    <div><input id='searchInput' type='text' placeholder='Endereço'></div>
-    <div><input id='latitude' placeholder="latitude" disabled></div>
-    <div><input id='longitude' placeholder="longitude" disabled></div>
-    <!-- buttons -->
-    <button id='buscar'  type='button'> Buscar </button>
-    <button id='cadastrar' type='button'> Cadastrar Cliente </button>
-    <button id='showBtns' type='button'> Resetar Cadastro </button>
-     <!-- map -->
+    <div class="container">
+    <form name='inputForm'>
+        <div><input id='nome' type='text' name='nome' placeholder='Nome Cliente'></div>
+        <div><input id='peso' type='number' name='peso' placeholder='Peso da Entrega'></div>
+        <div><input id='searchInput' type='text' name='address' placeholder='Endereço'></div>
+        
+        <div><input id='latitude' placeholder="latitude" disabled></div>
+        <div><input id='longitude' placeholder="longitude" disabled></div>
+        
+        <!-- buttons -->
+        <button id='buscar' type='button'> Buscar </button>
+        <button id='cadastrar' type='button' disabled> Cadastrar Cliente </button>
+        <button id='showBtns' type='button' disabled> Resetar Cadastro </button>
+    </form>
+    <!-- map -->
     <div id="map"></div>
+    </div>
     <!-- Data table -->
-    <ul class="geo-data">
+    <ul class="geodata">
+        <li>Nome: <span id="tableName"></span></li>
+        <li>Peso: <span id="tableWeight"></span></li>
         <li>Full Address: <span id="location"></span></li>
-        <li>Postal Code: <span id="postal_code"></span></li>
-        <li>Country: <span id="country"></span></li>
-        <li>Latitude: <span id="lat"></span></li>
-        <li>Longitude: <span id="lon"></span></li>
     </ul>
     <script src='/js/orders.js'></script>
     <script src='/js/index.js'></script>
