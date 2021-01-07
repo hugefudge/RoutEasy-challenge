@@ -1,8 +1,8 @@
 // Passar por um validador antes de mandar para o orders.createAddress
 const getInput = () => {
     let input = {
-        name: document.forms['inputForm']['nome'].value,
-        weight: document.forms['inputForm']['peso'].value,
+        nome: document.forms['inputForm']['name'].value,
+        peso: document.forms['inputForm']['weight'].value,
         address: document.forms['inputForm']['address'].value,
         inputTime: Date.now()
     }
@@ -27,28 +27,27 @@ const getInput = () => {
 
 const infoToPage = (delivery) => {
     document.getElementById('cadastrar').disabled = false;
-    document.getElementById('showBtns').disabled = false;
+    document.getElementById('reset').disabled = false;
     document.getElementById('latitude').placeholder = delivery.latitude;
     document.getElementById('longitude').placeholder = delivery.longitude;
     document.getElementById('location').outerHTML = delivery.endereco;
     document.getElementById('tableName').outerHTML = delivery.nome;
     document.getElementById('tableWeight').outerHTML = delivery.peso;
    
-
-    var markers = L.marker([delivery.latitude, delivery.longitude]).addTo(mymap);
+    L.marker([delivery.latitude, delivery.longitude]).addTo(mymap);
 
 };
 
 const resetFields = () => {
     document.forms['inputForm'].reset();
     document.getElementById('cadastrar').disabled = true;
-    document.getElementById('showBtns').disabled = true;
+    document.getElementById('reset').disabled = true;
     document.getElementById('longitude').placeholder = 'longitude';
     document.getElementById('latitude').placeholder = 'latitude';
     
 }
 
-document.getElementById('showBtns').addEventListener('click', resetFields);
+document.getElementById('reset').addEventListener('click', resetFields);
 
 
 
