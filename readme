@@ -1,0 +1,3 @@
+-- Campo de busca para filtrar as entregas cadastradas na base.
+-- Entregas cadastradas na base expostas na tela através de WebSocket
+-- Desafio: Criar rota para um veiculo com as entregas (Saindo do Centro de Distribuição);

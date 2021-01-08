@@ -44,6 +44,18 @@ const createDelivery = async () => {
     }
 }
 
+const checkDelivery = async (data) => { 
+    const response = fetch('urltocheckdelviery'); 
+    if(response.status === 500) await checkDelivery();
+    if(tem dados) { 
+    const data = response.dados;
+     await checkDelivery(data);
+  //aqui tu pode checar pra ele atualizar só quando tiver novos dados, ou fazer algum tratamento mais inteligente
+  alert(dados); 
+  await checkDelivery();
+  
+   }
+
 const loadMarkers = () => {  }
 
 

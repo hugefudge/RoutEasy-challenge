@@ -39,7 +39,7 @@ const infoToPage = (delivery) => {
 };
 
 const resetFields = () => {
-    document.forms['inputForm'].reset();
+    document.forms['inputForm'].reset(); // Not working no fucking idea why
     document.getElementById('cadastrar').disabled = true;
     document.getElementById('reset').disabled = true;
     document.getElementById('longitude').placeholder = 'longitude';
@@ -47,7 +47,7 @@ const resetFields = () => {
     
 }
 
-document.getElementById('reset').addEventListener('click', resetFields);
+//document.getElementById('reset').addEventListener('click', resetFields);
 
 
 
