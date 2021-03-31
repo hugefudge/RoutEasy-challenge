@@ -5,7 +5,7 @@ const bodyparser = require('body-parser');
 const Server = require('./bin/server');
 
 
-//Middlesware
+//Middleware
 app.use(bodyparser.urlencoded({extended: false }));
 app.use(bodyparser.json());
 app.use(express.static('./src/public'));
@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 });
 
 //Router
-const Routes = require('./src/routes/router');
+const Routes = require('./src/router');
 app.use('/', Routes);
 
 //Server

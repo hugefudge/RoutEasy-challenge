@@ -1,9 +1,9 @@
 // Passar por um validador antes de mandar para o orders.createAddress
-const getInput = () => {
+const getAddressInput = () => {
     let input = {
-        nome: document.forms['inputForm']['name'].value,
-        peso: document.forms['inputForm']['weight'].value,
-        address: document.forms['inputForm']['address'].value,
+        nome: document.forms['addressInputForm']['name'].value,
+        peso: document.forms['addressInputForm']['weight'].value,
+        address: document.forms['addressInputForm']['address'].value,
         inputTime: Date.now()
     }
     if (!input) {
@@ -13,6 +13,20 @@ const getInput = () => {
         return input;
     }
 };
+
+const getVehicleInput = () => {
+    let input = {
+        nome: document.forms['vehicleInputForm']['vehicleName'].value,
+        peso: document.forms['vehicleInputForm']['plaque'].value,
+        address: document.forms['vehicleInputForm']['supportedWeight'].value,
+    }
+    if (!input) {
+        return false
+
+    } else {
+        return input;
+    }
+}
 
 // Mapa no escopo global, pesquisar alternativa
     var mymap = L.map('map').setView([-27.5935423, -48.6387116], 13);
@@ -24,10 +38,9 @@ const getInput = () => {
         zoomOffset: -1
     }).addTo(mymap);
 
-
 const infoToPage = (delivery) => {
-    document.getElementById('cadastrar').disabled = false;
-    document.getElementById('reset').disabled = false;
+    document.getElementById('registerAddress').disabled = false;
+    document.getElementById('resetAddress').disabled = false;
     document.getElementById('latitude').placeholder = delivery.latitude;
     document.getElementById('longitude').placeholder = delivery.longitude;
     document.getElementById('location').outerHTML = delivery.endereco;
@@ -35,20 +48,13 @@ const infoToPage = (delivery) => {
     document.getElementById('tableWeight').outerHTML = delivery.peso;
    
     L.marker([delivery.latitude, delivery.longitude]).addTo(mymap);
-
 };
 
 const resetFields = () => {
-    document.forms['inputForm'].reset(); // Not working no fucking idea why
-    document.getElementById('cadastrar').disabled = true;
-    document.getElementById('reset').disabled = true;
+    document.getElementById('registerAddress').disabled = true;
+    document.getElementById('resetAddress').disabled = true;
     document.getElementById('longitude').placeholder = 'longitude';
     document.getElementById('latitude').placeholder = 'latitude';
-    
-}
+};
 
-//document.getElementById('reset').addEventListener('click', resetFields);
-
-
-
-
+document.getElementById('resetAddress').addEventListener('click', resetFields);

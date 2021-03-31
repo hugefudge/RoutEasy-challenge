@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const clientSchema = new Schema({
+const deliverySchema = new Schema({
     nome: { type: String, required: true, lowercase: true },
     peso: { type: String, required: true },
     placeId: { type: String, required: true },
@@ -16,4 +16,4 @@ const clientSchema = new Schema({
     longitude: { type: String }
 });
 
-module.exports = mongoose.model('delivery', clientSchema);
+module.exports = mongoose.model('delivery', deliverySchema);
