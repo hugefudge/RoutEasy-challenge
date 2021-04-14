@@ -1,31 +1,23 @@
 // Passar por um validador antes de mandar para o orders.createAddress
 const getAddressInput = () => {
-    let input = {
+   return {
         nome: document.forms['addressInputForm']['name'].value,
         peso: document.forms['addressInputForm']['weight'].value,
         address: document.forms['addressInputForm']['address'].value,
         inputTime: Date.now()
     }
-    if (!input) {
-        return false
 
-    } else {
-        return input;
-    }
+    //vc ta sempre decalarando o input, ele vai SEMPRE ser true
+    
 };
 
 const getVehicleInput = () => {
-    let input = {
+   return {
         nome: document.forms['vehicleInputForm']['vehicleName'].value,
         peso: document.forms['vehicleInputForm']['plaque'].value,
         address: document.forms['vehicleInputForm']['supportedWeight'].value,
     }
-    if (!input) {
-        return false
-
-    } else {
-        return input;
-    }
+   
 }
 
 // Mapa no escopo global, pesquisar alternativa
